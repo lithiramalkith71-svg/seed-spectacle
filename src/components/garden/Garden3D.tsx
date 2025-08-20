@@ -19,23 +19,51 @@ export const Garden3D = ({ trees, onTreeClick }: Garden3DProps) => {
         dpr={[1, 2]}
       >
         <Suspense fallback={null}>
-          {/* Lighting */}
-          <ambientLight intensity={0.4} />
+          {/* Realistic lighting setup */}
+          <ambientLight intensity={0.3} color="#E6F3FF" />
           <directionalLight
-            position={[10, 10, 5]}
-            intensity={1}
+            position={[15, 20, 10]}
+            intensity={1.2}
+            color="#FFF8DC"
             castShadow
-            shadow-mapSize={[2048, 2048]}
+            shadow-mapSize={[4096, 4096]}
             shadow-camera-far={50}
-            shadow-camera-left={-10}
-            shadow-camera-right={10}
-            shadow-camera-top={10}
-            shadow-camera-bottom={-10}
+            shadow-camera-left={-15}
+            shadow-camera-right={15}
+            shadow-camera-top={15}
+            shadow-camera-bottom={-15}
+            shadow-bias={-0.0001}
           />
           
-          {/* Environment */}
-          <Sky sunPosition={[100, 20, 100]} />
-          <Environment preset="park" />
+          {/* Fill light for natural look */}
+          <directionalLight
+            position={[-10, 8, -5]}
+            intensity={0.3}
+            color="#87CEEB"
+          />
+          
+          {/* Subtle rim lighting */}
+          <pointLight
+            position={[0, 15, 0]}
+            intensity={0.2}
+            color="#FFE4B5"
+            distance={30}
+          />
+          
+          {/* Realistic environment */}
+          <Sky 
+            sunPosition={[100, 20, 100]}
+            inclination={0.6}
+            azimuth={0.1}
+            turbidity={2}
+            rayleigh={1}
+            mieCoefficient={0.005}
+            mieDirectionalG={0.8}
+          />
+          <Environment preset="forest" background={false} />
+          
+          {/* Fog for depth */}
+          <fog attach="fog" args={['#E6F3FF', 20, 100]} />
           
           {/* Ground */}
           <Ground />

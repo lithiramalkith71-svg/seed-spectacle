@@ -34,19 +34,19 @@ export const Tree3D = ({ tree, onClick }: Tree3DProps) => {
     }
   };
 
-  // Get tree colors based on type
+  // Get realistic tree colors and materials based on type
   const getTreeColors = () => {
     switch (tree.type) {
       case 'oak':
-        return { trunk: '#8B4513', leaves: '#228B22' };
+        return { trunk: '#4A3728', leaves: '#2D5016', leavesSecondary: '#3D6B1F' };
       case 'pine':
-        return { trunk: '#654321', leaves: '#006400' };
+        return { trunk: '#3D2F1F', leaves: '#1B4D1B', leavesSecondary: '#0F3B0F' };
       case 'cherry':
-        return { trunk: '#8B4513', leaves: '#FFB6C1' };
+        return { trunk: '#5D4037', leaves: '#FFB3BA', leavesSecondary: '#FF8A95' };
       case 'maple':
-        return { trunk: '#A0522D', leaves: '#FF4500' };
+        return { trunk: '#6D4C28', leaves: '#B8860B', leavesSecondary: '#DAA520' };
       default:
-        return { trunk: '#8B4513', leaves: '#228B22' };
+        return { trunk: '#4A3728', leaves: '#2D5016', leavesSecondary: '#3D6B1F' };
     }
   };
 
@@ -66,31 +66,99 @@ export const Tree3D = ({ tree, onClick }: Tree3DProps) => {
         document.body.style.cursor = 'auto';
       }}
     >
-      {/* Trunk */}
+      {/* Trunk with realistic proportions */}
       <mesh
         ref={trunkRef}
         position={[0, 1, 0]}
         castShadow
         receiveShadow
       >
-        <cylinderGeometry args={[0.1, 0.15, 2, 8]} />
-        <meshLambertMaterial color={colors.trunk} />
+        <cylinderGeometry args={[0.08, 0.18, 2.2, 12]} />
+        <meshStandardMaterial 
+          color={colors.trunk}
+          roughness={0.8}
+          metalness={0.1}
+        />
       </mesh>
 
-      {/* Leaves/Foliage */}
+      {/* Main foliage */}
       <mesh
         ref={leavesRef}
-        position={[0, 2.5, 0]}
+        position={[0, tree.type === 'pine' ? 3.2 : 2.8, 0]}
         castShadow
         receiveShadow
       >
         {tree.type === 'pine' ? (
-          <coneGeometry args={[1, 2, 8]} />
+          <coneGeometry args={[1.2, 2.5, 8]} />
         ) : (
-          <sphereGeometry args={[1.2, 12, 8]} />
+          <sphereGeometry args={[1.3, 16, 12]} />
         )}
-        <meshLambertMaterial color={colors.leaves} />
+        <meshStandardMaterial 
+          color={colors.leaves}
+          roughness={0.7}
+          metalness={0.0}
+        />
       </mesh>
+
+      {/* Secondary foliage for more realistic look */}
+      {tree.type !== 'pine' && (
+        <>
+          <mesh
+            position={[0.3, 2.4, 0.2]}
+            castShadow
+            receiveShadow
+          >
+            <sphereGeometry args={[0.8, 12, 8]} />
+            <meshStandardMaterial 
+              color={colors.leavesSecondary}
+              roughness={0.6}
+              opacity={0.9}
+              transparent
+            />
+          </mesh>
+          <mesh
+            position={[-0.2, 2.6, -0.3]}
+            castShadow
+            receiveShadow
+          >
+            <sphereGeometry args={[0.7, 12, 8]} />
+            <meshStandardMaterial 
+              color={colors.leavesSecondary}
+              roughness={0.6}
+              opacity={0.8}
+              transparent
+            />
+          </mesh>
+        </>
+      )}
+
+      {/* Pine tree additional layers */}
+      {tree.type === 'pine' && (
+        <>
+          <mesh
+            position={[0, 2.5, 0]}
+            castShadow
+            receiveShadow
+          >
+            <coneGeometry args={[1.0, 1.8, 8]} />
+            <meshStandardMaterial 
+              color={colors.leavesSecondary}
+              roughness={0.7}
+            />
+          </mesh>
+          <mesh
+            position={[0, 1.8, 0]}
+            castShadow
+            receiveShadow
+          >
+            <coneGeometry args={[0.8, 1.4, 8]} />
+            <meshStandardMaterial 
+              color={colors.leaves}
+              roughness={0.7}
+            />
+          </mesh>
+        </>
+      )}
 
       {/* Health indicator */}
       {tree.health < 50 && (
