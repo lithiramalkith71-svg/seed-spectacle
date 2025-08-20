@@ -57,6 +57,17 @@ All colors MUST be HSL.
     --shadow-card: 0 4px 15px -2px hsl(140 30% 15% / 0.1);
     --shadow-glow: 0 0 30px hsl(90 60% 70% / 0.4);
     
+    /* Tree colors */
+    --tree-trunk: 0 0% 10%;
+    --tree-leaves-light: 120 60% 45%;
+    --tree-leaves-medium: 120 50% 35%;
+    --tree-leaves-dark: 120 40% 25%;
+    --tree-accent: 0 0% 100%;
+    
+    /* Garden environment */
+    --garden-ground: 120 40% 20%;
+    --garden-sky: 120 30% 85%;
+
     /* Natural animations */
     --transition-smooth: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
     --transition-bounce: all 0.5s cubic-bezier(0.68, -0.55, 0.265, 1.55);

@@ -34,19 +34,26 @@ export const Tree3D = ({ tree, onClick }: Tree3DProps) => {
     }
   };
 
-  // Get realistic tree colors and materials based on type
+  // Get realistic tree colors using design system
   const getTreeColors = () => {
+    const baseColors = {
+      trunk: 'hsl(0, 0%, 10%)', // Black trunk
+      leaves: 'hsl(120, 60%, 45%)', // Light green leaves
+      leavesSecondary: 'hsl(120, 50%, 55%)', // Lighter green variant
+      accent: 'hsl(0, 0%, 100%)' // White accent
+    };
+
     switch (tree.type) {
       case 'oak':
-        return { trunk: '#4A3728', leaves: '#2D5016', leavesSecondary: '#3D6B1F' };
+        return { ...baseColors, leaves: 'hsl(120, 60%, 45%)', leavesSecondary: 'hsl(120, 55%, 50%)' };
       case 'pine':
-        return { trunk: '#3D2F1F', leaves: '#1B4D1B', leavesSecondary: '#0F3B0F' };
+        return { ...baseColors, leaves: 'hsl(120, 50%, 35%)', leavesSecondary: 'hsl(120, 45%, 40%)' };
       case 'cherry':
-        return { trunk: '#5D4037', leaves: '#FFB3BA', leavesSecondary: '#FF8A95' };
+        return { ...baseColors, leaves: 'hsl(120, 70%, 50%)', leavesSecondary: 'hsl(120, 65%, 55%)' };
       case 'maple':
-        return { trunk: '#6D4C28', leaves: '#B8860B', leavesSecondary: '#DAA520' };
+        return { ...baseColors, leaves: 'hsl(120, 55%, 40%)', leavesSecondary: 'hsl(120, 60%, 45%)' };
       default:
-        return { trunk: '#4A3728', leaves: '#2D5016', leavesSecondary: '#3D6B1F' };
+        return baseColors;
     }
   };
 

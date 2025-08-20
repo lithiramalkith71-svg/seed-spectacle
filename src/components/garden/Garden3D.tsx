@@ -12,19 +12,19 @@ interface Garden3DProps {
 
 export const Garden3D = ({ trees, onTreeClick }: Garden3DProps) => {
   return (
-    <div className="w-full h-[60vh] bg-gradient-sky rounded-lg overflow-hidden shadow-card">
+    <div className="w-full h-[60vh] bg-gradient-to-br from-green-100 to-green-200 rounded-lg overflow-hidden shadow-card">
       <Canvas
         camera={{ position: [10, 8, 10], fov: 50 }}
         shadows
         dpr={[1, 2]}
       >
         <Suspense fallback={null}>
-          {/* Realistic lighting setup */}
-          <ambientLight intensity={0.3} color="#E6F3FF" />
+          {/* Green-tinted realistic lighting */}
+          <ambientLight intensity={0.4} color="#E8F5E8" />
           <directionalLight
             position={[15, 20, 10]}
-            intensity={1.2}
-            color="#FFF8DC"
+            intensity={1.0}
+            color="#F0FFF0"
             castShadow
             shadow-mapSize={[4096, 4096]}
             shadow-camera-far={50}
@@ -35,18 +35,18 @@ export const Garden3D = ({ trees, onTreeClick }: Garden3DProps) => {
             shadow-bias={-0.0001}
           />
           
-          {/* Fill light for natural look */}
+          {/* Green fill light */}
           <directionalLight
             position={[-10, 8, -5]}
-            intensity={0.3}
-            color="#87CEEB"
+            intensity={0.25}
+            color="#90EE90"
           />
           
-          {/* Subtle rim lighting */}
+          {/* Soft green rim lighting */}
           <pointLight
             position={[0, 15, 0]}
-            intensity={0.2}
-            color="#FFE4B5"
+            intensity={0.15}
+            color="#98FB98"
             distance={30}
           />
           
@@ -62,8 +62,8 @@ export const Garden3D = ({ trees, onTreeClick }: Garden3DProps) => {
           />
           <Environment preset="forest" background={false} />
           
-          {/* Fog for depth */}
-          <fog attach="fog" args={['#E6F3FF', 20, 100]} />
+          {/* Green fog for depth */}
+          <fog attach="fog" args={['#F0FFF0', 20, 100]} />
           
           {/* Ground */}
           <Ground />
