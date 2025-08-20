@@ -8,41 +8,41 @@ All colors MUST be HSL.
 
 @layer base {
   :root {
-    /* Nature-inspired gradient backgrounds */
-    --background: 130 35% 95%;
-    --foreground: 140 30% 15%;
+    /* Black and white with green accents */
+    --background: 0 0% 98%;
+    --foreground: 0 0% 5%;
 
-    /* Garden card system */
-    --card: 120 40% 98%;
-    --card-foreground: 140 30% 15%;
+    /* Clean card system */
+    --card: 0 0% 100%;
+    --card-foreground: 0 0% 5%;
 
-    --popover: 120 40% 98%;
-    --popover-foreground: 140 30% 15%;
+    --popover: 0 0% 100%;
+    --popover-foreground: 0 0% 5%;
 
     /* Forest green primary */
     --primary: 140 80% 25%;
     --primary-foreground: 120 30% 98%;
     
-    /* Sky blue secondary */
-    --secondary: 200 50% 85%;
-    --secondary-foreground: 140 80% 25%;
+    /* Light gray secondary */
+    --secondary: 0 0% 95%;
+    --secondary-foreground: 0 0% 10%;
 
-    /* Earth tones */
-    --muted: 45 25% 88%;
-    --muted-foreground: 140 20% 45%;
+    /* Subtle grays */
+    --muted: 0 0% 90%;
+    --muted-foreground: 0 0% 40%;
 
-    /* Growth accent */
-    --accent: 90 60% 70%;
-    --accent-foreground: 140 30% 15%;
+    /* Green accent */
+    --accent: 120 60% 50%;
+    --accent-foreground: 0 0% 100%;
 
-    /* Nature red for destructive */
-    --destructive: 0 70% 55%;
-    --destructive-foreground: 120 30% 98%;
+    /* Red for destructive */
+    --destructive: 0 70% 50%;
+    --destructive-foreground: 0 0% 100%;
 
-    /* Natural borders */
-    --border: 120 20% 85%;
-    --input: 120 20% 85%;
-    --ring: 140 80% 25%;
+    /* Clean borders */
+    --border: 0 0% 85%;
+    --input: 0 0% 95%;
+    --ring: 120 60% 50%;
 
     --radius: 0.75rem;
     
@@ -90,34 +90,34 @@ All colors MUST be HSL.
   }
 
   .dark {
-    /* Night garden theme */
-    --background: 140 40% 8%;
-    --foreground: 120 30% 92%;
+    /* Dark theme with green accents */
+    --background: 0 0% 5%;
+    --foreground: 0 0% 95%;
 
-    --card: 140 35% 12%;
-    --card-foreground: 120 30% 92%;
+    --card: 0 0% 8%;
+    --card-foreground: 0 0% 95%;
 
-    --popover: 140 35% 12%;
-    --popover-foreground: 120 30% 92%;
+    --popover: 0 0% 8%;
+    --popover-foreground: 0 0% 95%;
 
-    --primary: 120 50% 75%;
-    --primary-foreground: 140 40% 8%;
+    --primary: 120 60% 50%;
+    --primary-foreground: 0 0% 100%;
 
-    --secondary: 200 30% 25%;
-    --secondary-foreground: 120 30% 92%;
+    --secondary: 0 0% 15%;
+    --secondary-foreground: 0 0% 95%;
 
-    --muted: 140 20% 18%;
-    --muted-foreground: 120 15% 65%;
+    --muted: 0 0% 12%;
+    --muted-foreground: 0 0% 60%;
 
-    --accent: 90 40% 55%;
-    --accent-foreground: 140 40% 8%;
+    --accent: 120 60% 50%;
+    --accent-foreground: 0 0% 100%;
 
     --destructive: 0 60% 45%;
     --destructive-foreground: 120 30% 92%;
 
-    --border: 140 25% 20%;
-    --input: 140 25% 20%;
-    --ring: 120 50% 75%;
+    --border: 0 0% 20%;
+    --input: 0 0% 15%;
+    --ring: 120 60% 50%;
     
     /* Night gradients */
     --gradient-forest: linear-gradient(135deg, 140 60% 15%, 120 50% 25%);

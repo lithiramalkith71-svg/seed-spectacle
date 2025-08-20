@@ -8,11 +8,11 @@ export const Ground = () => {
     const colors = new Float32Array(geometry.attributes.position.count * 3);
     
     for (let i = 0; i < colors.length; i += 3) {
-      // Create natural grass color variations
-      const variation = Math.random() * 0.3;
-      colors[i] = 0.2 + variation * 0.3;     // Red
-      colors[i + 1] = 0.4 + variation * 0.4; // Green
-      colors[i + 2] = 0.1 + variation * 0.2; // Blue
+      // Create vibrant green grass variations
+      const variation = Math.random() * 0.2;
+      colors[i] = 0.1 + variation * 0.1;     // Minimal red
+      colors[i + 1] = 0.6 + variation * 0.3; // Strong green
+      colors[i + 2] = 0.1 + variation * 0.1; // Minimal blue
     }
     
     geometry.setAttribute('color', new THREE.BufferAttribute(colors, 3));
@@ -43,7 +43,7 @@ export const Ground = () => {
       >
         <circleGeometry args={[0.8, 16]} />
         <meshStandardMaterial 
-          color="#8B7355"
+          color="#4A5D2A"
           roughness={0.9}
         />
       </mesh>
@@ -55,7 +55,7 @@ export const Ground = () => {
       >
         <circleGeometry args={[0.6, 16]} />
         <meshStandardMaterial 
-          color="#A0906C"
+          color="#5A6B35"
           roughness={0.9}
         />
       </mesh>
