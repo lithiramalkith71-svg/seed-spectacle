@@ -84,68 +84,11 @@ export default {
 					to: {
 						height: '0'
 					}
-				},
-				'tree-grow': {
-					'0%': {
-						transform: 'scale(0.3) translateY(20px)',
-						opacity: '0'
-					},
-					'50%': {
-						transform: 'scale(0.7) translateY(10px)',
-						opacity: '0.7'
-					},
-					'100%': {
-						transform: 'scale(1) translateY(0)',
-						opacity: '1'
-					}
-				},
-				'leaf-rustle': {
-					'0%, 100%': {
-						transform: 'rotate(-2deg)'
-					},
-					'50%': {
-						transform: 'rotate(2deg)'
-					}
-				},
-				'float': {
-					'0%, 100%': {
-						transform: 'translateY(0px)'
-					},
-					'50%': {
-						transform: 'translateY(-10px)'
-					}
-				},
-				'glow-pulse': {
-					'0%, 100%': {
-						boxShadow: '0 0 20px hsl(var(--accent) / 0.3)'
-					},
-					'50%': {
-						boxShadow: '0 0 40px hsl(var(--accent) / 0.6)'
-					}
 				}
 			},
 			animation: {
 				'accordion-down': 'accordion-down 0.2s ease-out',
-				'accordion-up': 'accordion-up 0.2s ease-out',
-				'tree-grow': 'tree-grow 1.5s cubic-bezier(0.68, -0.55, 0.265, 1.55)',
-				'leaf-rustle': 'leaf-rustle 3s ease-in-out infinite',
-				'float': 'float 4s ease-in-out infinite',
-				'glow-pulse': 'glow-pulse 2s ease-in-out infinite'
-			},
-			backgroundImage: {
-				'gradient-forest': 'var(--gradient-forest)',
-				'gradient-sky': 'var(--gradient-sky)',
-				'gradient-earth': 'var(--gradient-earth)',
-				'gradient-growth': 'var(--gradient-growth)'
-			},
-			boxShadow: {
-				'tree': 'var(--shadow-tree)',
-				'card': 'var(--shadow-card)',
-				'glow': 'var(--shadow-glow)'
-			},
-			transitionTimingFunction: {
-				'smooth': 'var(--transition-smooth)',
-				'bounce': 'var(--transition-bounce)'
+				'accordion-up': 'accordion-up 0.2s ease-out'
 			}
 		}
 	},
